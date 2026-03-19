@@ -1,0 +1,639 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kareem Portfolio</title>
+
+<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<!-- Bootstrap Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+<style>
+/* ===== Global Styles ===== */
+body {
+    background-color: #0f172a;
+    color: #e2e8f0;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+a, .btn {
+    transition: 0.3s;
+}
+
+/* ===== Navbar ===== */
+.navbar {
+    background-color: #020617 !important;
+}
+.navbar-brand {
+    font-weight: 600;
+    color: lightgreen;
+}
+.navbar-brand:hover{
+    color: lightcoral;
+
+}
+.nav-link {
+    font-weight: 500;
+}
+.nav-link:hover {
+    /* color: #3b82f6 !important; */
+    color: lightgreen;
+}
+
+/* ===== Buttons ===== */
+.btn-primary {
+    background-color: #3b82f6;
+    border: none;
+}
+.btn-primary:hover {
+    background-color: #2563eb;
+    transform: translateY(-2px);
+}
+
+/* ===== Section Titles ===== */
+.section-title {
+    font-weight: 600;
+    margin-bottom: 1rem;
+    position: relative;
+    display: inline-block;
+}
+.section-title::after {
+    content: "";
+    width: 60px;
+    height: 3px;
+    background-color: #3b82f6;
+    display: block;
+    margin: 8px auto 0;
+    border-radius: 2px;
+}
+
+/* ===== Cards ===== */
+.card {
+    background:#1a1a1a;
+    border:none;
+    color:white;
+    transition: 0.3s;
+}
+.card:hover {
+    transform: translateY(-10px);
+}
+
+/* ===== Skill Icon ===== */
+.skill-icon {
+    font-size: 40px;
+    color: #3b82f6;
+}
+
+/* ===== Images ===== */
+.rounded-circle-shadow {
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 5px 20px rgba(59, 130, 246, 0.3);
+    transition: transform 0.3s ease;
+}
+.rounded-circle-shadow:hover {
+    transform: scale(1.05);
+}
+
+/* ===== Text Animations ===== */
+.fade-up {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 1s forwards;
+}
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== Footer ===== */
+footer {
+    text-align: center;
+    padding: 2rem 0;
+    border-top: 1px solid #2c2c2c;
+    color: #cbd5e1;
+}
+footer i {
+    font-size: 20px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+footer i:hover {
+    color: #3b82f6;
+}
+
+/* ===== Responsive Fixes ===== */
+@media (max-width: 767px) {
+    .rounded-circle-shadow {
+        width: 180px !important;
+        height: 180px !important;
+    }
+}   
+.btn-primary:hover {
+    background-color: darkgreen;
+}
+.glass-btn {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 12px 32px;
+    background: darkgreen; /* Soft Purple/Blue Gradient */
+    color: white !important;
+    text-decoration: none !important;
+    font-weight: 600;
+    border-radius: 50px;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(110, 142, 251, 0.4);
+}
+
+.glass-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(110, 142, 251, 0.5);
+    filter: brightness(1.1);
+    background: purple;
+}
+h1{
+    color: lightgreen;
+}
+h2 {
+    color: lightgreen;
+}
+/* LIGHT MODE (Default) */
+/* LIGHT MODE (Default) */
+:root {
+    --bg-body: #f8fafc;    
+    --bg-nav: #ffffff;     
+    --text-main: #1e293b;  
+    --text-muted: #64748b;
+    --accent: #16a34a;     /* Forest Green */
+    --card-bg: #ffffff;    
+    --glass-btn: #16a34a;
+}
+
+/* DARK MODE (Active when class is added) */
+body.dark-mode {
+    --bg-body: #0f172a;
+    --bg-nav: #020617;
+    --text-main: #e2e8f0;
+    --text-muted: #94a3b8;
+    --accent: #90ee90;     /* LightGreen */
+    --card-bg: #1a1a1a;
+    --glass-btn: darkgreen;
+}
+
+/* Hamburger Fix: Visible in both modes */
+.navbar-toggler-icon {
+    filter: var(--toggler-filter, invert(1)); /* Adjusts icon color based on background */
+}
+body.dark-mode {
+    --toggler-filter: invert(0);
+}
+
+
+/* Apply Variables to existing styles */
+body { background-color: var(--bg-body); color: var(--text-main); transition: 0.3s; }
+.navbar { background-color: var(--bg-nav) !important; }
+.card { background: var(--card-bg); color: var(--text-main); border: 1px solid rgba(0,0,0,0.05); }
+h1, h2, .navbar-brand { color: var(--accent) !important; }
+.glass-btn { background: var(--glass-btn); }
+.section-title::after { background-color: var(--accent); }
+/* Update Card for Light Mode Visibility */
+.card {
+    background: var(--card-bg) !important;
+    color: var(--text-main) !important;
+    border: 1px solid rgba(128, 128, 128, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+}
+
+/* Fix for the Skills Section container */
+#skills {
+    background-color: var(--card-bg) !important;
+    transition: background-color 0.3s ease;
+}
+
+/* Fix for descriptions that were stuck on 'text-secondary' */
+.text-secondary {
+    color: var(--text-muted) !important;
+}
+
+/* Ensure Navbar links change color in Light Mode */
+
+
+/* Mobile Adjustments for Theme Button */
+@media (max-width: 991px) {
+    #theme-toggle {
+        margin-top: 10px;
+        width: fit-content;
+    }
+    .navbar-nav {
+        padding-bottom: 20px;
+    }
+}
+
+/* Smooth transition for theme switch */
+* {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+
+        /* BUTTONS & CARDS */
+        .glass-btn {
+            display: inline-block;
+            padding: 12px 32px;
+            background: var(--glass-btn);
+            color: white !important;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .glass-btn:hover { transform: translateY(-3px); filter: brightness(1.1); color: white; }
+
+      :root {
+            --bg-body: #f8fafc;    
+            --bg-nav: #ffffff;     
+            --text-main: #1e293b;  
+            --text-muted: #64748b;
+            --accent: #16a34a; /* Forest Green */
+            --card-bg: #ffffff;    
+            --glass-btn: #16a34a;
+            --nav-link: #1e293b;
+        }
+
+        body.dark-mode {
+            --bg-body: #0f172a;
+            --bg-nav: #020617;
+            --text-main: #e2e8f0;
+            --text-muted: #94a3b8;
+            --accent: #90ee90; /* LightGreen */
+            --card-bg: #1a1a1a;
+            --glass-btn: darkgreen;
+            --nav-link: #e2e8f0;
+        }
+
+        /* GLOBAL STYLES */
+        body { 
+            background-color: var(--bg-body); 
+            color: var(--text-main); 
+            font-family: 'Poppins', sans-serif;
+            transition: 0.3s; 
+            scroll-behavior: smooth;
+        }
+
+        .navbar { background-color: var(--bg-nav) !important; transition: 0.3s; }
+        .nav-link { color: var(--nav-link) !important; font-weight: 500; }
+        .nav-link:hover { color: var(--accent) !important; }
+        .navbar-brand { font-weight: 600; color: var(--accent) !important; }
+
+        h1, h2 { color: var(--accent) !important; }
+        .text-secondary { color: var(--text-muted) !important; }
+
+        /* BUTTONS & CARDS */
+        .glass-btn {
+            display: inline-block;
+            padding: 12px 32px;
+            background: var(--glass-btn);
+            color: white !important;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .glass-btn:hover { transform: translateY(-3px); filter: brightness(1.1); color: white; }
+
+        .card {
+            background: var(--card-bg) !important;
+            color: var(--text-main) !important;
+            border: 1px solid rgba(128,128,128,0.1);
+            transition: 0.3s;
+        }
+        .card:hover { transform: translateY(-10px); }
+
+        .section-title::after {
+            content: ""; width: 60px; height: 3px;
+            background-color: var(--accent);
+            display: block; margin: 8px auto 0;
+        }
+
+        /* IMAGES */
+        .rounded-circle-shadow {
+            border-radius: 50%; object-fit: cover;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+
+        /* TOGGLER FIX */
+        body.dark-mode .navbar-toggler-icon { filter: invert(0); }
+        .navbar-toggler-icon { filter: invert(1); }
+
+        @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+        .fade-up { opacity: 0; transform: translateY(20px); animation: fadeUp 1s forwards; }
+
+
+      
+    </style>
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg shadow-sm navbar-light py-3 fixed-top">
+    <div class="container">
+        <a href="#" class="navbar-brand">Abdullah Al Kareem</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navmenu">
+            <ul class="ms-auto navbar-nav">
+                <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
+                <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
+                <li class="nav-item "><a href="#contact" class="nav-link btn btn-primary">Contact</a></li>
+                <li class="nav-item ms-lg-3">
+                  <button id="theme-toggle" class="btn btn-outline-success rounded-circle">
+                     <i class="bi bi-moon-stars" id="theme-icon"></i>
+                   </button>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section id="home" class="container py-5">
+    <div class="row g-4 align-items-center" style="min-height:70vh;">
+        <div class="col-md-6 text-center fade-up pt-5">
+            <img src="rsz_2601089448_1200168422047056_8921114394381164989_n.jpg" 
+                 class="rounded-circle-shadow" 
+                 style="width:220px; height:220px; ">
+        </div>
+        <div class="col-md-6 d-flex flex-column justify-content-center align-items-start fade-up" style="animation-delay:0.2s;">
+             <h2 class="fw-bold mb-3" style="color: lightgreen;">Abdullah AL Kareem</h2>
+            <p class="fw-bold mb-4 fs-5">
+                Hackintosh Expert, Loves programming and Exploring Operating systems like macOS, Windows, Linux
+            </p>
+       <a href="#contact" class="glass-btn">
+Contact
+</a>
+
+
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="text-center">
+    <h1 class="fw-bold section-title">About</h1>
+    <div class="container py-2">
+        <div class="row align-items-center g-5">
+            <div class="col-md-6 text-center fade-up">
+                <img src="pexels-clement-proust-363898785-29080624.jpg" 
+                     class="img-fluid rounded shadow-lg">                   
+            </div>
+            <div class="col-md-6 fade-up" style="animation-delay:0.2s;">
+               
+                <p class="text-secondary" style="line-height:1.8;">
+                   Hackintosh enthusiast,UI/UX, Front-end developer, Hates Javascript, Loves Python,Bootstrap,CSS,HTML.
+                 
+                </p>
+                <p class="text-secondary" style="line-height:1.8;">
+                    Loves to Explore Operating Systems.
+                </p>
+                   <p class="text-secondary" style="line-height:1.8;">
+                    Installed MACOS Sonoma through Hackintosh   
+                </p>
+                   <p class="text-secondary" style="line-height:1.8;">
+                    Used Linux and windows have a basic knowledge about Linux systems like ARCH,FEDORA,UBUNTU
+                </p>
+                                             <a href="" 
+   class="btn btn-primary rounded-pill px-5 py-2 mt-3 text-white shadow-sm fw-bold text-decoration-none d-inline-block">
+Learn More
+</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Skills Section -->
+ <div class="container py-5 ">
+    <section id="skills" class="text-center py-5  rounded shadow-lg">
+    <h1 class="fw-bold section-title">Skills</h1>
+    <div class="container py-5">
+        <div class="row g-4">
+            <div class="col-md-3 fade-up">
+                <div class="card text-center p-4">
+                    <i class="bi bi-filetype-html skill-icon"></i>
+                    <h5 class="mt-3">HTML</h5>
+                </div>
+            </div>
+            <div class="col-md-3 fade-up" style="animation-delay:0.1s">
+                <div class="card text-center p-4">
+                    <i class="bi bi-bootstrap skill-icon"></i>
+                    <h5 class="mt-3">Bootstrap</h5>
+                </div>
+            </div>
+            <div class="col-md-3 fade-up" style="animation-delay:0.2s">
+                <div class="card text-center p-4">
+                    <i class="bi bi-terminal skill-icon"></i>
+                    <h5 class="mt-3">Linux</h5>
+                </div>
+            </div>
+            <div class="col-md-3 fade-up" style="animation-delay:0.3s">
+                <div class="card text-center p-4">
+                    <i class="bi bi-code-slash skill-icon"></i>
+                    <h5 class="mt-3">Python</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+ </div>
+
+<!-- Projects Section -->
+<section id="projects" class="text-center py-5">
+    <h1 class="fw-bold section-title">Projects</h1>
+    <div class="container py-5">
+        <div class="row align-items-center g-5 fade-up">
+            <div class="col-md-6 text-center">
+                <img src="Screenshot 2026-03-19 at 1.59.05 AM.png" 
+                     class="img-fluid rounded shadow-lg">
+            </div>
+            <div class="col-md-6">
+                <h2 class="fw-bold mb-3">Hackintosh</h2>
+                <p class="text-secondary" style="line-height:1.8;">
+                    A Hackintosh is a non-Apple computer or Laptop customized to run Apple’s macOS operating system. 
+                    It allows users to run macOS on standard hardware using special software to emulate a Mac's BIOS.
+                </p>
+                <p class="text-secondary" style="line-height:1.8;">
+                    I successfully installed macOS Monterey, Ventura, and Sonoma on my ThinkPad L490 and configured the EFI perfectly.
+                </p>
+                                <a href="" 
+   class="btn btn-primary rounded-pill px-5 py-2 mt-3 text-white shadow-sm fw-bold text-decoration-none d-inline-block">
+   Click to Visit
+</a>
+            </div>
+        </div>
+    </div>
+     <div class="container py-5">
+        <div class="row align-items-center g-5 fade-up">
+            <div class="col-md-6 text-center">
+                <img src="Screenshot 2026-03-19 at 2.33.23 AM.png" 
+                     class="img-fluid rounded shadow-lg" style="border:solid; border-color: #2563eb;">
+            </div>
+            <div class="col-md-6">
+                <h2 class="fw-bold mb-3">Portofilo</h2>
+                <p class="text-secondary" style="line-height:1.8;">
+A portfolio is a curated collection of materials, assets, or projects that showcases an individual's skills, a creative professional's work, or an investor's financial holdings. 
+                </p>
+                <p class="text-secondary" style="line-height:1.8;">
+                  It serves as a comprehensive display of capabilities, achievements, or investment strategies tailored to meet specific professional, academic, or financial goals.
+                </p>
+                               <a href="" 
+   class="btn btn-primary rounded-pill px-5 py-2 mt-3 text-white shadow-sm fw-bold text-decoration-none d-inline-block">
+   Click to Visit
+</a>
+            </div>
+        </div>
+    </div>
+     <div class="container py-5">
+        <div class="row align-items-center g-5 fade-up">
+            <div class="col-md-6 text-center">
+                <img src="Screenshot 2026-03-19 at 2.43.30 AM.png" 
+                     class="img-fluid rounded shadow-lg" style="border:solid; border-color: #2563eb;">
+            </div>
+            <div class="col-md-6">
+                <h2 class="fw-bold mb-3">Chocopanda</h2>
+                <p class="text-secondary" style="line-height:1.8;">
+                    It is like a copy of Foodpanda
+                </p>
+                <p class="text-secondary" style="line-height:1.8;">
+                  Only made for testing my levels
+                
+                </p>
+                <a href="https://neonx7-me.github.io/Orah../" 
+   class="btn btn-primary rounded-pill px-5 py-2 mt-3 text-white shadow-sm fw-bold text-decoration-none d-inline-block">
+   Click to Visit
+</a>
+
+            </div>
+        </div>
+    </div>
+       <div class="container py-5">
+        <div class="row align-items-center g-5 fade-up">
+            <div class="col-md-6 text-center">
+                <img src="Screenshot 2026-03-19 at 2.52.07 AM.png" 
+                     class="img-fluid rounded shadow-lg" style="border:solid; border-color: #2563eb;">
+            </div>
+            <div class="col-md-6">
+                <h2 class="fw-bold mb-3">UNI.com</h2>
+                <p class="text-secondary" style="line-height:1.8;">
+                    Made for nothing
+                </p>
+                <p class="text-secondary" style="line-height:1.8;">
+                  Only made for testing my levels
+                </p>
+              
+             <a href="https://neonx7-me.github.io/University/" 
+   class="btn btn-primary rounded-pill px-5 py-2 mt-3 text-white shadow-sm fw-bold text-decoration-none d-inline-block">
+   Click to Visit
+</a>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="text-center py-5 bg-dark">
+    <h2 class="section-title">Contact</h2>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6 fade-up">
+                <input class="form-control mb-3" placeholder="Your Name">
+                <input class="form-control mb-3" placeholder="Email">
+                <textarea class="form-control mb-3" rows="4" placeholder="Message"></textarea>
+                <button class="btn btn-primary w-100">Send Message</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <p>© 2026 Abdullah Kareem</p>
+    <div class="mt-2">
+        <i class="bi bi-github me-3"></i>
+        <i class="bi bi-twitter me-3"></i>
+        <i class="bi bi-linkedin"></i>
+    </div>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Scroll Animation -->
+<script>
+const faders = document.querySelectorAll('.fade-up');
+const appearOptions = {
+    threshold: 0.2
+};
+
+const appearOnScroll = new IntersectionObserver(function(entries, observer){
+    entries.forEach(entry => {
+        if(!entry.isIntersecting) return;
+        entry.style.animation = "fadeUp 1s forwards";
+        observer.unobserve(entry);
+    });
+}, appearOptions);
+
+faders.forEach(fader => {
+    appearOnScroll.observe(fader);
+});
+
+
+ const toggleBtn = document.getElementById('theme-toggle');
+    const themeIcon = document.getElementById('theme-icon');
+    const body = document.body;
+
+    // Default is Light. Check if Dark was saved.
+    if (localStorage.getItem('theme') === 'dark') {
+        body.classList.add('dark-mode');
+        themeIcon.classList.replace('bi-moon-stars', 'bi-sun-fill');
+    }
+
+    toggleBtn.addEventListener('click', () => {
+        body.classList.toggle('dark-mode');
+        const isDark = body.classList.contains('dark-mode');
+        
+        if (isDark) {
+            themeIcon.classList.replace('bi-moon-stars', 'bi-sun-fill');
+            localStorage.setItem('theme', 'dark');
+        } else {
+            themeIcon.classList.replace('bi-sun-fill', 'bi-moon-stars');
+            localStorage.setItem('theme', 'light');
+        }
+    });
+
+
+
+</script>
+
+</body>
+</html>
